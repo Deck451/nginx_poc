@@ -9,3 +9,9 @@ git clone https://github.com/deck451/nginx_poc.git
 cd nginx_poc
 docker compose up --build
 ```
+
+## Usage
+
+```sh
+curl http://localhost:82
+```
