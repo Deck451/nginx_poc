@@ -22,7 +22,8 @@ RUN poetry install --no-root
 COPY . ./app/
 
 # Expose port for FastAPI
-EXPOSE 83
+ENV PORT=83
 
 # Start the FastAPI application
-CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "83", "--reload"]
+# CMD ["poetry", "run", "uvicorn", "app.main:app", "--host 0.0.0.0", "--port", $PORT, "--reload"]
+CMD exec poetry run uvicorn app.main:app --host 0.0.0.0 --port $PORT --reload

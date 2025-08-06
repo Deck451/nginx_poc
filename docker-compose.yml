@@ -6,6 +6,20 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
-  server:
+  server_0:
     build:
       context: ./server
+    environment:
+      - PORT=83
+
+  server_1:
+    build:
+      context: ./server
+    environment:
+      - PORT=84
+
+  server_2:
+    build:
+      context: ./server
+    environment:
+      - PORT=85
